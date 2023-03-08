@@ -2,6 +2,12 @@
 
 ![Design preview for the Results summary component coding challenge](./design/desktop-preview.jpg)
 
+## Live Site
+
+[Press Here](https://sparkling-kataifi-9cc81b.netlify.app/)
+
+Note: This website has a mobile version.
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
