@@ -1,63 +1,111 @@
 ---
-export interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
+import { Image } from '@astrojs/image/components'
+import MemoryIcon from '../../assets/images/icon-memory.svg'
+import ReactionIcon from '../../assets/images/icon-reaction.svg'
+import VerbalIcon from '../../assets/images/icon-verbal.svg'
+import VisualIcon from '../../assets/images/icon-visual.svg'
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.25rem;
-		background-color: white;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 0.6rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
-
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
-	}
-</style>
+<div class="flex min-h-screen items-center md:justify-center">
+  <div
+    class="flex max-h-screen max-w-screen-md flex-col md:h-[500px] md:w-[700px] md:flex-row md:rounded-3xl md:shadow-2xl"
+  >
+    <div
+      class="flex w-full flex-col items-center rounded-b-3xl bg-gradient-to-b from-light-slate-blue to-persian-blue p-10 md:w-1/2 md:rounded-3xl"
+    >
+      <p class="font-sans text-xl font-medium text-gray-300 md:text-2xl">
+        Your Result
+      </p>
+      <div
+        class="my-6 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-gradient-to-b from-violet-blue to-transparent md:h-48 md:w-48"
+      >
+        <p class="font-sans text-5xl font-extrabold text-white md:text-6xl">
+          76
+        </p>
+        <p class="text-md font-sans font-medium text-gray-400">of 100</p>
+      </div>
+      <p class="mb-4 text-center font-sans text-3xl font-bold text-white">
+        Great
+      </p>
+      <p class="px-2 text-center font-sans text-lg font-medium text-gray-300">
+        Your scored higher than 65% of the people who have taken these tests.
+      </p>
+    </div>
+    <div
+      class="flex flex-col items-center p-10 pt-5 md:w-1/2 md:rounded-3xl md:p-10"
+    >
+      <p class="mr-auto pb-5 font-sans text-2xl font-semibold text-gray-900">
+        Summary
+      </p>
+      <div
+        class="flex w-full flex-row items-center rounded-lg bg-light-red/[0.1] p-3"
+      >
+        <Image
+          src={ReactionIcon}
+          alt="reaction-icon"
+          width={20}
+          height={20}
+          class="mr-1"
+        />
+        <p class="mr-auto ml-1 text-light-red">Reaction</p>
+        <div class="flex flex-row">
+          <p class="mr-1">80&nbsp</p>
+          <p class="text-gray-500">/&nbsp100</p>
+        </div>
+      </div>
+      <div
+        class="my-5 flex w-full flex-row items-center rounded-lg bg-orangey-yellow/[0.1] p-3"
+      >
+        <Image
+          src={MemoryIcon}
+          alt="memory-icon"
+          width={20}
+          height={20}
+          class="mr-1"
+        />
+        <p class="mr-auto ml-1 text-orangey-yellow">Memory</p>
+        <div class="flex flex-row">
+          <p class="mr-1">92&nbsp</p>
+          <p class="text-gray-500">/&nbsp100</p>
+        </div>
+      </div>
+      <div
+        class="flex w-full flex-row items-center rounded-lg bg-green-teal/[0.1] p-3"
+      >
+        <Image
+          src={VerbalIcon}
+          alt="verbal-icon"
+          width={20}
+          height={20}
+          class="mr-1"
+        />
+        <p class="mr-auto ml-1 text-green-teal">Verbal</p>
+        <div class="flex flex-row">
+          <p class="mr-1">61&nbsp</p>
+          <p class="text-gray-500">/&nbsp100</p>
+        </div>
+      </div>
+      <div
+        class="my-5 flex w-full flex-row items-center rounded-lg bg-cobalt-blue/[0.1] p-3"
+      >
+        <Image
+          src={VisualIcon}
+          alt="visual-icon"
+          width={20}
+          height={20}
+          class="mr-1"
+        />
+        <p class="mr-auto ml-1 text-cobalt-blue">Visual</p>
+        <div class="flex flex-row">
+          <p class="mr-1">72&nbsp</p>
+          <p class="text-gray-500">/&nbsp100</p>
+        </div>
+      </div>
+      <button
+        class="mt-2 w-full rounded-full bg-slate-700 from-light-slate-blue to-persian-blue px-20 py-4 text-white hover:bg-gradient-to-b md:mt-6"
+      >
+        Continue
+      </button>
+    </div>
+  </div>
+</div>
